@@ -10,11 +10,11 @@ app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({extended:true}));
 
-app.get("/Newsletter/", function(req, res){
+app.get("/", function(req, res){
     res.sendFile(__dirname + "/signup.html");
 })
 
-app.post("/Newsletter/", function(req, res){
+app.post("/", function(req, res){
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
     const email = req.body.email;
@@ -62,7 +62,7 @@ app.post("/Newsletter/", function(req, res){
 })
 
 app.post("/failure", function(req, res){
-    res.redirect("/Newsletter")
+    res.redirect("/")
 })
 
 //process.env.PORT allows Heroku to pick the port they want to host
